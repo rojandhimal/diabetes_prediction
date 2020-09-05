@@ -1,0 +1,37 @@
+.DS_Store
+*.pyc
+local_settings.py
+.anvil/*
+__pycache__
+__pycache__/
+.Python
+/bin
+/lib
+/src
+/include
+.coverage
+.venv
+static/media
+.idea/*
+.vscode
+.cache/
+venv
+venv/
+django/
+django
+node_modules/
+static/build/
+static/local/
+static/rev-manifest.json
+temp/
+.cpython-36.pyc
+.pytest_cache/
+staticfiles/
+.env
+media/
+
+# Text backup files
+*.bak
+
+# Database
+*.sqlite3
