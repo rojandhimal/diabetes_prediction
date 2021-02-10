@@ -1,0 +1,233 @@
+*
+{
+	margin: 0px;
+	padding: 0px;
+	box-sizing: border-box;
+}
+.navbar
+{
+	background-color:  #ff9f80;
+	display: flex;
+	justify-content: center;
+
+	
+}
+.navbar a
+{
+	color: white;
+	text-align: center;
+	font-weight: bold;
+	text-decoration: none;
+	text-transform: uppercase;
+	padding: 14px ;
+}
+.logo
+{
+	color:white;
+	text-transform: uppercase;
+	letter-spacing: 3px;
+	font-size:20px; 
+	margin-top: 15px;
+    padding-right: 400px;
+ }
+.navbar a:hover
+{
+	background-color: white;
+	color: black;
+}
+#slider {
+  margin: 0;
+  padding: 35px;
+  background: url("prevent.jpg");
+  background-repeat: no-repeat;
+  height: 515px;
+  text-align: center;
+  background-size: cover;
+
+}
+#slider h2{
+	margin-top: 0;
+	font-size: 50px;
+	color: #cc3300;
+	
+}
+ #slider h2 span{
+ 	color:#cc3300;
+
+}
+ #slider button{
+	width: 200px;
+	padding: 15px 0;
+	text-align: center;
+	margin:0 10px;
+	border-radius: 25px; 
+	font-weight: bold;
+	font-size:20px;
+	border:1px solid #23DC2C;
+	background:   #ff9f80;
+	color:  #fff;
+	cursor: pointer;
+
+}
+#slider button:hover{
+	color: black;
+	background: transparent;
+	border:1px solid #fe7250;
+	box-shadow: 0 0 10px #fe7250, 0 0 40px #fe7250, 0 0 80px #fe7250;
+}
+.btn-2{
+	border:1px solid #23DC2C;
+	background: blue;
+}
+.btn-2:hover{
+	border:1px solid #fd7250;
+	background:#23DC2C;
+}
+h1{
+    text-align: center;
+	background-color: white;
+	color: gray;
+	top: 0;
+	height: 50px;
+}
+#About{
+	margin-top: 0px;
+	background-color:  #ff9f80;
+
+}
+.column {
+  float: left;
+  width: 40%;
+  padding-left: 50px;
+}
+#more {
+	display: none;
+}
+	button{
+		background-color: #cf8459;
+		border:2px solid;
+		border-color: blue;
+		outline: none;
+		color: white;
+		font-size: 20px;
+		padding: 5px;
+	}
+	button:hover{
+		background-color: black;
+	}
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+  padding-left:90px;
+}
+
+h3{
+	margin-top: 20px;
+	color:blue;
+	font-size: 30px;
+
+}
+#footer{
+	height: 200px;
+	margin-top: 0px;
+    background-color: white;
+    margin-bottom: 20px;
+}
+.row{
+	margin-top: 20px;
+}
+h4{
+	margin-top: 0px;
+	text-align: center;
+	color:white;
+	font-size: 35px;
+	background-color:  #ff4000;
+    width:100%;
+    padding-right:0px;
+}
+/* Float four columns side by side */
+.column {
+  float: left;
+  width: 25%;
+  padding: 0 10px;
+}
+
+/* Remove extra left and right margins, due to padding in columns */
+.row {margin: 0 -5px;}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Style the counter cards */
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* this adds the "card" effect */
+  padding: 16px;
+  text-align: center;
+  background-color: #f1f1f1;
+}
+
+
+#toggle
+{
+	display: none;
+}
+.togglearea
+{
+	background-color: #6D6A6A;
+	border-bottom: 2px solid white;
+	color: white;
+	padding: 10px;
+	display: flex;
+	justify-content: flex-end;
+}
+.togglearea label
+{
+	background-color: white;
+	height: 45px;
+	width: 50px;
+	color: black;
+	border-radius: 6px;
+	cursor: pointer;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+}
+.togglearea label span
+{
+	background-color: black;
+	height: 4px;
+	width: 70%;
+	margin: 2px 0px;
+}
+.togglearea
+{
+	display: none;
+}
+
+@media screen and (max-width: 700px)
+{
+	.navbar
+	{
+		flex-direction: column;
+		display: none;
+	}
+	#toggle:checked + .navbar
+	{
+		display: flex;
+	}
+	.togglearea
+	{	
+		display: flex;
+	}
+
+  .column {
+    width: 100%;
+  }
+}
