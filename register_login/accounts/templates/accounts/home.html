@@ -1,11 +1,157 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
-</head>
-<body>
-    <h1>Welcome {{user.username}}</h1>
-</body>
-</html>
+{% extends 'accounts/base.html' %}
+
+{% block content %}
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">Diabetis Prediction</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
+        aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarText">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="{% url 'index' %}">Home <span class="sr-only">{(current)}</span></a>
+            </li>
+            
+        </ul>
+        <span class="navbar-text">
+            {{user.username}}
+        </span>
+    </div>
+</nav>
+
+<!-- <h1>Welcome {{user.username}}</h1> -->
+<br>
+
+<div class="row">
+    <div class="predictform col-md-6" style="margin-left: 100px; background-color: #81818163;  padding: 20px; margin-right: 50px;">
+
+        <form action="" method="POST">
+            {% csrf_token %}
+            <div class="row">
+                <div class="form-group col">
+                    <label for="email">Pregencies</label><br>
+                    <input type="Pregencies" class="Pregencies" id="Pregencies" name="Pregencies">
+                </div>
+                <div class="form-group col">
+                    <label for="email">Glucose</label><br>
+                    <input type="Glucose" class="Glucose" id="email" name="Glucose">
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col">
+                    <label for="email">BloodPressure</label><br>
+                    <input type="BloodPressure" class="BloodPressure" id="BloodPressure" name="BloodPressure">
+                </div>
+                <div class="form-group col">
+                    <label for="email">SkinThickness</label><br>
+                    <input type="SkinThickness" class="SkinThickness" id="SkinThickness" name="SkinThickness">
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col">
+                    <label for="email">Insulin</label><br>
+                    <input type="Insulin" class="Insulin" id="Insulin" name="Insulin">
+                </div>
+                <div class="form-group col">
+                    <label for="BMI">BMI</label><br>
+                    <input type="BMI" class="BMI" id="BMI" name="BMI">
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col">
+                    <label for="email">DiabetesPedigreeFunction</label><br>
+                    <input type="DiabetesPedigreeFunction" class="DiabetesPedigreeFunction"
+                        id="DiabetesPedigreeFunction" name="DiabetesPedigreeFunction">
+                </div>
+                <div class="form-group col">
+                    <label for="email">Age</label><br>
+                    <input type="Age" class="Age" id="Age" name="Age">
+                </div>
+            </div>
+            <button type="submit" class="btn btn-login float-left">Perform Test</button>
+        </form>
+    </div>
+    <div class="result col-md-4" style="background-color: #81818163;">
+        <div class="row" style="background-color: rgb(36, 89, 136);">
+            <div class="title col-md-9" style="color: aliceblue; background-color: rgb(36, 89, 136); width: 100%; text-align: center; font-size: 40px;">Medical Report</div>
+            <div> <a href="" style="display: inline-block; width: 60px; margin-top: 20px; text-align: center; padding: 4px; height: 30px; color: white; background-color: rgb(26, 141, 112); text-decoration: none;" >Print</a></div>
+        </div>
+        <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Test Features</th>
+                <th scope="col">Input Value</th>
+                
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">1</th>
+                <td>Pregencies</td>
+                <td>{{Pregencies}}</td>
+                
+              </tr>
+              <tr>
+                <th scope="row">2</th>
+                <td>Glucose</td>
+                <td>{{Glucose}}</td>
+                
+              </tr>
+              <tr>
+                <th scope="row">3</th>
+                <td>BloodPressure</td>
+                <td>{{BloodPressure}}</td>
+              </tr>
+              <tr>
+                <th scope="row">3</th>
+                <td>SkinThickness</td>
+                <td>{{SkinThickness}}</td>
+              </tr>
+              <tr>
+                <th scope="row">3</th>
+                <td>Insulin</td>
+                <td>{{Insulin}}</td>
+              </tr>
+              <tr>
+                <th scope="row">3</th>
+                <td>BMI</td>
+                <td>{{BMI}}</td>
+              </tr>
+              <tr>
+                <th scope="row">3</th>
+                <td>DiabetesPedigreeFunction</td>
+                <td>{{DiabetesPedigreeFunction}}</td>
+              </tr>
+              <tr>
+                <th scope="row">3</th>
+                <td>Age</td>
+                <td>{{Age}}</td>
+              </tr>
+
+              <tr>
+                <th scope="row"></th>
+                <td style="color: brown; font-weight: bold;">Test Result</td>
+                <td style="color: brown; font-weight: bold" >Diabetis {{res}} {{res_prob}}</td>
+              </tr>
+            </tbody>
+          </table>
+
+         
+        <!-- <div class="Chart">
+            <canvas id="#pie-chartcanvas-1" width="400" height="400"></canvas>
+          </div> -->
+        
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
+<style>
+    body{
+        overflow-x: hidden;
+    }
+</style>
+
+
+{% endblock content %}
