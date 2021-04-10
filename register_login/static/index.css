@@ -6,7 +6,7 @@
 }
 .navbar
 {
-	background-color:  #ff9f80;
+	background-color:  #fff;
 	display: flex;
 	justify-content: center;
 
@@ -14,7 +14,7 @@
 }
 .navbar a
 {
-	color: white;
+	color: rgb(12, 11, 11);
 	text-align: center;
 	font-weight: bold;
 	text-decoration: none;
@@ -23,7 +23,7 @@
 }
 .logo
 {
-	color:white;
+	color:rgb(12, 11, 11);
 	text-transform: uppercase;
 	letter-spacing: 3px;
 	font-size:20px; 
@@ -32,13 +32,13 @@
  }
 .navbar a:hover
 {
-	background-color: white;
+	background-color:#fe7250;
 	color: black;
 }
 #slider {
   margin: 0;
   padding: 35px;
-  background: url("prevent.jpg");
+  background: url("web.jpg");
   background-repeat: no-repeat;
   height: 515px;
   text-align: center;
@@ -48,11 +48,11 @@
 #slider h2{
 	margin-top: 0;
 	font-size: 50px;
-	color: #cc3300;
+	color: #fff;
 	
 }
  #slider h2 span{
- 	color:#cc3300;
+ 	color:#fff;
 
 }
  #slider button{
@@ -63,9 +63,9 @@
 	border-radius: 25px; 
 	font-weight: bold;
 	font-size:20px;
-	border:1px solid #23DC2C;
-	background:   #ff9f80;
-	color:  #fff;
+	border:1px solid #e3eee4;
+	background:  #fff;
+	color: black;
 	cursor: pointer;
 
 }
@@ -86,18 +86,19 @@
 h1{
     text-align: center;
 	background-color: white;
-	color: gray;
+	color: black;
 	top: 0;
 	height: 50px;
+	letter-spacing: 3px;
 }
 #About{
 	margin-top: 0px;
 	background-color:  #ff9f80;
 
 }
-.column {
-  float: left;
-  width: 40%;
+.column1 {
+ text-align: center;
+  width: 50%;
   padding-left: 50px;
 }
 #more {
@@ -115,6 +116,12 @@ h1{
 	button:hover{
 		background-color: black;
 	}
+
+	.column2 {
+		text-align: center;
+		width: 50%;
+		padding-left: 50px;
+	  }	
 /* Clear floats after the columns */
 .row:after {
   content: "";
@@ -125,7 +132,7 @@ h1{
 
 h3{
 	margin-top: 20px;
-	color:blue;
+	color:white;
 	font-size: 30px;
 
 }
@@ -141,11 +148,12 @@ h3{
 h4{
 	margin-top: 0px;
 	text-align: center;
-	color:white;
+	color:black;
 	font-size: 35px;
-	background-color:  #ff4000;
+	background-color:  #e3eee4;
     width:100%;
     padding-right:0px;
+	letter-spacing: 5px;
 }
 /* Float four columns side by side */
 .column {

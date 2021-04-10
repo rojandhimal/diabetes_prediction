@@ -1,0 +1,38 @@
+{% extends 'accounts/base.html' %}
+
+{% block content %}
+
+
+<section class="login-block">
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 login-sec">
+                <h1>Training Model</h1>
+                <form action="" method="post">
+                    {% csrf_token %}
+                    <label for="dataset1" class="">Dataset 1</label><br>
+                    <input type="file" class="form-control" name="dataset1" required><br>
+                    <label for="dataset2" class="">Dataset 2</label><br>
+                    <input type="file" class="form-control" name="dataset2" required><br>
+                    <label for="dataset3" class="">Dataset 3</label><br>
+                    <input type="file" class="form-control" name="dataset3" required><br>
+
+                    {% for message in messages %}
+                    {{message}}
+                    {% endfor %} <br><br>
+
+                    <button type="submit" class="btn btn-login float-left">Train</button><br><br>
+                </form>
+                <form method="GET" action="/admin">
+                    <input type="submit" value="Back TO admin Dashboard">
+                </form>
+            </div>
+            <div class="col-md-8 banner-sec">
+                <h1 style="margin: 30px;">Result</h1>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock content %}

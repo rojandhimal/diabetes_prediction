@@ -4,104 +4,128 @@
 <!DOCTYPE html>
 {% load static %}
 <html lang="en">
+
 <head>
-	
-	 <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Responsive Menu</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.6.2/animate.min.css" rel="stylesheet">
-	<link rel="stylesheet" href="{% static 'index.css' %}">
-  </head>
-  
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Responsive Menu</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.6.2/animate.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="{% static 'index.css' %}">
+</head>
+
 <body>
-	<div class="togglearea">
-		<label for="toggle">
-			<span></span>
-			<span></span>
-			<span></span>
-		</label>
-	</div>
-		<input type="checkbox" id="toggle">
-		
-	<div class="navbar">
-		<div class="logo"> <b>Diabetes Predicition System </b></div>
-		<a href="">Home</a>
-		
-		<a href="#About">About</a>
-		<a href="#About">Contact</a>
-		<a href="#footer">Teams</a>
-		</div>
-
-	<div id="slider">
-  <h2 class="animated zoomIn" style="animation-delay: 2s"><b>Welcome To <span>Diabetes Prediction</span></b></h2>
-   <p class="animated fadeInUp" style="animation-delay:3s"><a href="{% url 'login'%}"> <button type="button">Login</button></a>
-     <a href="{% url 'register'%}"><button type="button" class="btn-2">Register</button></a></p>
+  <div class="togglearea">
+    <label for="toggle">
+      <span></span>
+      <span></span>
+      <span></span>
+    </label>
   </div>
-	<h1>Diabetes Prediction System Using Machine Learning </h1>
-<section id="About">
-	<div class="row">
-  <div class="column">
-  	<h3>About Us</h3>
-  	<p>Diabetes is a common, chronic disease. Prediction of diabetes at an early stage can lead to improved treatment. Data mining techniques are widely used for prediction of disease at an early stage. In this research paper, diabetes is predicted using significant attributes, and the relationship of the differing attributes is also characterized.<span id="dots">...</span><span id="more">Various tools are used to determine significant attribute selection, and for clustering, prediction, and association rule mining for diabetes. Significant attributes selection was done via the principal component analysis method. Our findings indicate a strong association of diabetes with body mass index (BMI) and with glucose level, which was extracted via the Apriori method. Artificial neural network (ANN), random forest (RF) and K-means clustering techniques were implemented for the prediction of diabetes. The ANN technique provided a best accuracy of 75.7%, and may be useful to assist medical professionals with treatment decisions.</span></p>
-   <button onclick="myFunction()" id="myBtn">Read more</button>
-<script>
-function myFunction() {
-  var dots = document.getElementById("dots");
-  var moreText = document.getElementById("more");
-  var btnText = document.getElementById("myBtn");
+  <input type="checkbox" id="toggle">
 
-  if (dots.style.display === "none") {
-    dots.style.display = "inline";
-    btnText.innerHTML = "Read more"; 
-    moreText.style.display = "none";
-  } else {
-    dots.style.display = "none";
-    btnText.innerHTML = "Read less"; 
-    moreText.style.display = "inline";
-  }
-}
-</script>
-  </div>
-  <div class="column">
-  	<h3>Contact Us</h3>
-  	<p> 9808029542<br>
-  		982502365420<br>
-        Futher information<br>
-  	    email:malakarsilon@gmail.com</p>
-  </div>
- </div>
-</section>
+  <div class="navbar">
+    <div class="logo"> <b>Diabetes Predicition System </b></div>
+    <a href="">Home</a>
 
-<div id="footer">
-		<div class="row">
-		<h4> <marquee direction="right">Team Members </marquee></h4></div>
-  <div class="column">
-  	    <div class="card">
-    	<img src="{% static 'PP.jpg' %}" width="200px" height="200px">
-    	<h5>Silon Mali</h5>
-    	<h6>Student</h6>
+    <a href="#About">About</a>
+    <a href="#About">Contact</a>
+    <a href="#footer">Teams</a>
+  </div>
+
+  <div id="slider">
+    <h2 class="animated zoomIn" style="animation-delay: 2s"><b>Welcome To <span>Diabetes Prediction</span></b></h2>
+    <p class="animated fadeInUp" style="animation-delay:3s"><a href="{% url 'login'%}"> <button
+          type="button">Login</button></a>
+      <a href="{% url 'register'%}"><button type="button" class="btn-2">Register</button></a>
+    </p>
+
+    <!-- <a class="btn btn-info" href="{% url 'pdf_view' %}" target="_blank">View Invoice</a> -->
+    <!-- <a class="btn btn-info"  href="{% url 'pdf_download' %}">Download Invoice</a> -->
+  </div>
+  <h1>Diabetes Prediction System Using Naive Bayes </h1>
+  <section id="About">
+    <div class="row">
+      <div class="column1">
+        <h3>About Us</h3>
+        <p>Diabetes is a common, chronic disease. Prediction of diabetes at an early stage can lead to improved
+          treatment. Data mining techniques are widely used for prediction of disease at an early stage. In this
+          research paper, diabetes is predicted using significant attributes, and the relationship of the differing
+          attributes is also characterized.<span id="dots">...</span><span id="more">Various tools are used to determine
+            significant attribute selection, and for clustering, prediction, and association rule mining for diabetes.
+            Significant attributes selection was done via the principal component analysis method. Our findings indicate
+            a strong association of diabetes with body mass index (BMI) and with glucose level, which was extracted via
+            the Apriori method. Artificial neural network (ANN), random forest (RF) and K-means clustering techniques
+            were implemented for the prediction of diabetes. The ANN technique provided a best accuracy of 75.7%, and
+            may be useful to assist medical professionals with treatment decisions.</span></p>
+        <button onclick="myFunction()" id="myBtn">Read more</button>
+        <script>
+          function myFunction() {
+            var dots = document.getElementById("dots");
+            var moreText = document.getElementById("more");
+            var btnText = document.getElementById("myBtn");
+
+            if (dots.style.display === "none") {
+              dots.style.display = "inline";
+              btnText.innerHTML = "Read more";
+              moreText.style.display = "none";
+            } else {
+              dots.style.display = "none";
+              btnText.innerHTML = "Read less";
+              moreText.style.display = "inline";
+            }
+          }
+        </script>
+      </div>
+      <div class="column2">
+        <h3>Contact Us</h3>
+        <p> 9808029542<br>
+          98250236542<br>
+          Futher information<br>
+          email:malakarsilon@gmail.com</p>
+      </div>
+    </div>
+  </section>
+
+  <div id="footer">
+    <div class="row">
+      <h4>
+        <marquee direction="right">Team Members </marquee>
+      </h4>
+    </div>
+    <div class="column">
+      <div class="card">
+        <center><img src="{% static 'Aeron.jpg' %}" width="200px" height="200px"></center>
+        <h5>Aeron Maharjan</h5>
+        <h6>Student</h6>
+      </div>
+    </div>
+    <div class="column">
+      <div class="card">
+        <center><img src="{% static 'amrit.jpg' %}" width="200px" height="200px"></center>
+        <h5>Amrit Acharya</h5>
+        <h6>Student</h6>
+      </div>
+    </div>
+    <div class="column">
+      <div class="card">
+        <center><img src="{% static 'milan.jpg' %}" width="200px" height="200px"></center>
+        <h5>Milan Dhimal</h5>
+        <h6>Student</h6>
+      </div>
+    </div>
+    <div class="column">
+      <div class="card">
+        <center><img src="{% static 'pp.jpg' %}" width="200px" height="200px"></center>
+        <h5>Silon Mali</h5>
+        <h6>Student</h6>
+      </div>
     </div>
   </div>
-  <div class="column">
-    <div class="card"><img src="{% static 'PP.jpg' %}" width="200px" height="200px">
-    	<h5>Milan Dhimal</h5>
-    	<h6>Student</h6>
-    </div>
   </div>
-  <div class="column">
-    <div class="card"><img src="{% static 'Aeron.jpg' %}" width="200px" height="200px">
-    	<h5>Aeron Maharjan</h5>
-    	<h6>Student</h6></div>
-  </div>
-  <div class="column">
-    <div class="card"><img src="{% static 'PP.jpg' %}" width="200px" height="200px">
-    	<h5>Amrit Acharya</h5>
-    	<h6>Student</h6></div>
-  </div>
-</div>
-</div>
 
-{% endblock content %}
+  {% endblock content %}
 </body>
+
 </html>

@@ -1,0 +1,23 @@
+{% extends 'admin/base.html' %}
+
+{% load static %}
+{% block branding %}
+<h1 id="head">
+    <img src={% static 'images/logo.png' %} alt="Diabetis Prediction" height="50" width="80"> Diabetis Prediction System
+</h1>
+
+
+{% endblock %}
+
+{% block footer %}
+
+<form action="/traindata">
+    <input type="submit" value="Train">
+</form>
+{% endblock %}
+
+{% block extrastyle %}
+
+<link rel="stylesheet" href={% static 'css/admin.css' %}>
+
+{% endblock%}
