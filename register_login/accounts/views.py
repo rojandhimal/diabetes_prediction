@@ -29,6 +29,9 @@ from .forms import RegisterForm
 
 
 def trainModel(data):
+    print("Train mode ..")
+    data["Label"] = data.Outcome.values
+    data.drop(labels=["Outcome"], axis=1, inplace=True)
     test = data.iloc[700:]
     test_label = test["Label"]
     test.drop(labels=["Label"], axis=1, inplace=True)
@@ -46,18 +49,23 @@ def trainModel(data):
     acc_clf_test = round(clf.score(x_test, y_test)*100, 2)
     print("GaussianNB Train Accuracy: %", acc_clf_train)
     print("GaussianNB Test Accuracy: %", acc_clf_test)
-    return clf, test, test_label
+    print("Complete train mode")
+    return clf, test, test_label, acc_clf_train, acc_clf_test
 
 
 def testModel(clf, testdata, test_label):
+    print("test mode")
     prediction = clf.predict(testdata)
     accuracy = accuracy_score(prediction, test_label)
+    print("Complete test mode")
     return accuracy
 
 
 def saveModel(cfl):
-    with open('my_dumped_classifier.pkl', 'wb') as fid:
-        pickle.dump(gnb, fid)
+    print("Save model mode")
+    with open('GNB.pkl', 'wb') as fid:
+        pickle.dump(cfl, fid)
+    print("Complete save model mode")
 
 
 def index(request):
@@ -146,28 +154,28 @@ def logoutUser(request):
 
 # this section is for pdf
 def render_to_pdf(template_src, context_dict={}):
-	template = get_template(template_src)
-	html = template.render(context_dict)
-	result = BytesIO()
-	pdf = pisa.pisaDocument(BytesIO(html.encode("ISO-8859-1")), result)
-	if not pdf.err:
-		return HttpResponse(result.getvalue(), content_type='application/pdf')
-	return None
+    template = get_template(template_src)
+    html = template.render(context_dict)
+    result = BytesIO()
+    pdf = pisa.pisaDocument(BytesIO(html.encode("ISO-8859-1")), result)
+    if not pdf.err:
+        return HttpResponse(result.getvalue(), content_type='application/pdf')
+    return None
 
 
 data = {
-	"company": "Diabetis Prediction System",
-	"address": "Kathmandu",
-	"city": "Kathmandu",
-	"state": "03",
-	"zipcode": "44600",
-	"phone": "+977-9823043456",
-	"email": "milandhimal13@gmail.com.com",
-	"website": "Diabetis Prediction System",
+    "company": "Diabetis Prediction System",
+    "address": "Kathmandu",
+    "city": "Kathmandu",
+    "state": "03",
+    "zipcode": "44600",
+    "phone": "+977-9823043456",
+    "email": "milandhimal13@gmail.com.com",
+    "website": "Diabetis Prediction System",
 
 }
 
-#Opens up page as PDF
+# Opens up page as PDF
 
 
 class ViewPDF(View):
@@ -176,7 +184,7 @@ class ViewPDF(View):
         return HttpResponse(pdf, content_type='application/pdf')
 
 
-#Automaticly downloads to PDF file
+# Automaticly downloads to PDF file
 class DownloadPDF(View):
     def getdbObj(self):
         patinfo = patientInfo.objects.last()
@@ -196,14 +204,24 @@ class DownloadPDF(View):
 
 def trainData(request):
     print("this is train page")
+    context = {}
     if request.POST:
         print("Train page btn clicked")
         f1 = request.POST['dataset1']
         f2 = request.POST['dataset2']
         f3 = request.POST['dataset3']
-        m1, t1, tl1 = trainModel(f1)
-        m2, t2, tl2 = trainModel(f2)
-        m3, t3, tl3 = trainModel(f3)
+        print("Reading f1...", f1)
+        f1 = pd.read_csv(f1)
+        print("shape of file 1", f1.shape)
+        print("Reading f2...", f2)
+        f2 = pd.read_csv(f2)
+        print("shape of file 2", f2.shape)
+        print("Reading f3...", f3)
+        f3 = pd.read_csv(f3)
+        print("shape of file 3", f3.shape)
+        m1, t1, tl1, ta1, tea1 = trainModel(f1)
+        m2, t2, tl2, ta2, tea2 = trainModel(f2)
+        m3, t3, tl3, ta3, tea3 = trainModel(f3)
         ac1 = testModel(m1, t1, tl1)
         ac2 = testModel(m2, t2, tl2)
         ac3 = testModel(m3, t3, tl3)
@@ -214,6 +232,10 @@ def trainData(request):
         else:
             saveModel(m3)
 
+        context = {"model1ta": ta1, "model2ta": ta2, "model3ta": ta3,
+                   "model1tea": tea1, "model2tea": tea2, "model3tea": tea3, }
+        return render(request, 'accounts/train.html', context)
+
     if request.GET:
         print("back to admin")
-    return render(request, 'accounts/train.html', {})
+    return render(request, 'accounts/train.html', context)

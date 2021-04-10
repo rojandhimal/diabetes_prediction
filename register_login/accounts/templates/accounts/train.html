@@ -28,11 +28,41 @@
                     <input type="submit" value="Back TO admin Dashboard">
                 </form>
             </div>
-            <div class="col-md-8 banner-sec">
+            <div class="col-md-8 ">
                 <h1 style="margin: 30px;">Result</h1>
+                <table border="">
+                    <table style="width:100%">
+                        <tr>
+                            <th>Dataset</th>
+                            <th>Dataset 1</th>
+                            <th>Dataset 2</th>
+                            <th>Dataset 3</th>
+                        </tr>
+                        <tr>
+                            <td>Train</td>
+                            <td>{{model1ta}}</td>
+                            <td>{{model2ta}}</td>
+                            <td>{{model3ta}}</td>
+                        </tr>
+                        <tr>
+                            <td>Test</td>
+                            <td>{{model1tea}}</td>
+                            <td>{{model2tea}}</td>
+                            <td>{{model3tea}}</td>
+                        </tr>
+                
+                
+                    </table>
+                
+                </table>
             </div>
         </div>
     </div>
 </section>
+<style>
+    h3 {
+        color: green;
+    }
+</style>
 
 {% endblock content %}
