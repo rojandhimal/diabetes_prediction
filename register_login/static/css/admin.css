@@ -1,0 +1,61 @@
+#header{
+    background:#4e6291;
+    color:#fff;
+}
+
+div.breadcrumbs{
+    background:#ea6e68;
+    color:#fff
+}
+
+div.breadcrumbs a:focus, div.breadcrumbs a:hover{
+    color:#4e6291;
+}
+
+.button, input[type="submit"], input[type="button"], .submit-row input, a.button{
+    background:#4e6291;
+    color:#fff;
+}
+
+.module h2, .module caption, .inline-group h2{
+    background:#ea6e68;
+    color:#fff;
+}
+
+#form{
+   width: 100%;
+   background-color: #a9aaac;
+}
+
+.form > h1{
+    width: 500px;
+    padding: 20px;
+    color: #ea6e68;
+    font-weight: bold;
+margin-left: 100px;
+}
+
+.form > form{
+    width: 500px;
+    padding: 20px;
+    margin-left: 100px;
+}
+
+input[type="file"]:hover{
+    cursor: pointer;
+}
+
+#training-section{
+    display: flex;
+    flex-direction: row;
+}
+.result{
+    width: 600px;
+    background-color: #ea6e68;
+}
+
+.result>h1{
+    padding-left: 50px;
+    padding-top: 20px;
+    color: white;
+}

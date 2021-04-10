@@ -28,10 +28,12 @@
                     {% endfor %}
                     {% endif %} <br><br>
                     <div class="form-check">
-                    <button type="submit" class="btn btn-login float-right">Register</button>
-                    <a href="{% url 'login' %}" style="margin-left: 100px; margin-top: -50px;">Login</a>
+                    <button type="submit" class="btn btn-login float-left">Register</button><br><br>
                     </div>
                 </form>
+                <a href="{%url 'index'%}">Back to Home</a>
+                <a href="{% url 'login' %}" class="float-right">Login</a>
+               
             </div>
                 <div class="col-md-8 banner-sec">
                     <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
@@ -46,8 +48,8 @@
                                     src="https://static.pexels.com/photos/33972/pexels-photo.jpg" alt="First slide">
                                 <div class="carousel-caption d-none d-md-block">
                                     <div class="banner-text">
-                                        <h2>Diabetis Prediction</h2>
-                                        <p>Diabetis Prediction with gaussian naive bayes.</p>
+                                        <h2>Diabetes Prediction</h2>
+                                        <p>Diabetes Prediction with gaussian naive bayes.</p>
                                     </div>
                                 </div>
                             </div>
