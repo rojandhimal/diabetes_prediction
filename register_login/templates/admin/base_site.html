@@ -11,9 +11,18 @@
 
 {% block footer %}
 
-<form action="/traindata">
-    <input type="submit" value="Train">
+<form id='form' action="/traindata">
+    <input style="    margin-left: 50px;
+                                                width: 300px;" type="submit" value="Train">
 </form>
+<script>
+    x = document.getElementById("user-tools");
+    if (x == null) {
+        form = document.getElementById("form").style.display = 'none'
+    }
+
+</script>
+
 {% endblock %}
 
 {% block extrastyle %}
